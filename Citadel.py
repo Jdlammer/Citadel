@@ -1,3 +1,5 @@
+def welcome():
+        print("Hello! Welcome to Citadel.")
 class Player:
     def __init__(self,name=None,attack=None,defense=None):
         self.name = name
@@ -13,12 +15,6 @@ class Player:
             x = 0
             y = 0
         }
-class Enemies:
-    def __init__(self,type,name,attack=None, defense=None):
-        self.name = name
-        self.type = type
-        self.attack = attack
-        self.defense = defense
 
     def get_name(self):
         return self.name
@@ -26,23 +22,38 @@ class Enemies:
     def set_name(self, x):
         self.name = x
 
-    def get_attack(self):
-        return self.attack
-
-    def set_attack(self, x):
-        self.attack = x
-
-    def get_defense(self):
-        return self.defense
-
-    def set_defense(self, x):
-        self.defense = x
-
     def get_inventory(self):
         return self.inventory
 
-    def welcome():
-        print("Hello! Welcome to Citadel.")
+    def get_coordinates(self):
+        return self.coordinates
+
+
+
+class Enemy:
+    def __init__(self,name,description,health, damage):
+        self.name = name
+        self.description = description
+        self.health = health
+        self.damage = damage
+    def is_alive(self):
+        return self.health>0
+
+class Bear(Enemy):
+    def __init__(self):
+        super().__init__(name="Bear",
+                         description="A big brown grizzly",
+                         health=200,
+                         damage=15)
+
+
+    def get_health(self):
+        return self.health
+
+    def get_damage(self):
+        return self.damage
+
+
 
 
 
